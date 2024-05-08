@@ -1,6 +1,6 @@
 # SEMv3: A Fast and Robust Approach to Table Separation Line Detection
 
-This repository contains the source code of [SEMv3: A Fast and Robust Approach to Table Separation Line Detection](https://markdown.com.cn/basic-syntax/links.html).
+This repository contains the source code of SEMv3: A Fast and Robust Approach to Table Separation Line Detection.
 
 ## Introduction of SEMv3
 
