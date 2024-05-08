@@ -35,7 +35,7 @@ valid_rota=False
 backbone=dict(
     type='ResNetV1d',
     depth=34,
-    init_cfg=dict(type='Pretrained', checkpoint="/yrfs2/cv1/jszhang6/zrzhang6/PretrainModel/ResNet/resnet_34.pth")
+    init_cfg=dict(type='Pretrained', checkpoint="./PretrainModel/ResNet/resnet_34.pth")
 )
 
 # neck

@@ -32,7 +32,7 @@ def cal_segment_pr(point_c, begins, ends):
         # unmatched_segments_idx = find_unmatch_segment_spans(pred_segments_pi, fg_spans_pi + bg_spans_pi)
     # print(point_c)
     correct_nums += len(matched_segments_idx)
-    segment_nums += len(point_c) #  - len(unmatched_segments_idx) #TODO: 这里为什么要减去一个不匹配的数量？
+    segment_nums += len(point_c) #  - len(unmatched_segments_idx) 
     span_nums += len(begins)
     # print(correct_nums, segment_nums, span_nums)
     return correct_nums, segment_nums, span_nums

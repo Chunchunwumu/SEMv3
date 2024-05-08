@@ -338,13 +338,10 @@ def pred_result_to_table_new_token(table, pred_result,cfg=None):
 
 
 def pred_result_to_table_new_token_iflytab(table, pred_result,cfg=None, is_infer=False):
-    """蜈井ｽｿ逕ｨSEMv2_SciTSR蠕怜芦layout縲…ol_segment"""
     layout, spans = get_layout_spans(pred_result)
-    row_center_points, row_segm_logits, ¥
-            col_center_points, col_segm_logits, ¥
-                mg_logits, num_rows, num_cols, table_gird_bboxes = pred_result
+    row_center_points, row_segm_logits, col_center_points, col_segm_logits, mg_logits, num_rows, num_cols, table_gird_bboxes = pred_result
     
-    cells = parse_cells(layout, spans, row_center_points, row_segm_logits,¥
+    cells = parse_cells(layout, spans, row_center_points, row_segm_logits,
         col_center_points, col_segm_logits, table_gird_bboxes)
     if not is_infer:
         extend_cell_lines(cells, table['line_polys'])
@@ -363,13 +360,11 @@ def pred_result_to_table_new_token_iflytab(table, pred_result,cfg=None, is_infer
 
 
 def pred_result_to_table_new_token_iflytab_tm(table, pred_result,cfg=None):
-    """蜈井ｽｿ逕ｨSEMv2_SciTSR蠕怜芦layout縲…ol_segment"""
+
     layout, spans = get_layout_spans_tm(pred_result)
-    row_center_points, row_segm_logits, ¥
-            col_center_points, col_segm_logits, ¥
-                mg_logits,mg_c_logits, num_rows, num_cols, table_gird_bboxes = pred_result
+    row_center_points, row_segm_logits, col_center_points, col_segm_logits, mg_logits,mg_c_logits, num_rows, num_cols, table_gird_bboxes = pred_result
     
-    cells = parse_cells(layout, spans, row_center_points, row_segm_logits,¥
+    cells = parse_cells(layout, spans, row_center_points, row_segm_logits,
         col_center_points, col_segm_logits, table_gird_bboxes)
     extend_cell_lines(cells, table['line_polys'])
 
@@ -384,14 +379,11 @@ def pred_result_to_table_new_token_iflytab_tm(table, pred_result,cfg=None):
  
 
 def pred_result_to_table_new_token_iflytab_tm_v1(table, pred_result,cfg=None):
-    """蜈井ｽｿ逕ｨSEMv2_SciTSR蠕怜芦layout縲…ol_segment"""
-    layout, spans = get_layout_spans_tm_v1(pred_result)
-    row_center_points, row_segm_logits, ¥
-            col_center_points, col_segm_logits, ¥
-                mg_logits,mg_c_logits, num_rows, num_cols, table_gird_bboxes = pred_result
     
-    cells = parse_cells(layout, spans, row_center_points, row_segm_logits,¥
-        col_center_points, col_segm_logits, table_gird_bboxes)
+    layout, spans = get_layout_spans_tm_v1(pred_result)
+    row_center_points, row_segm_logits, col_center_points, col_segm_logits, mg_logits,mg_c_logits, num_rows, num_cols, table_gird_bboxes = pred_result
+    
+    cells = parse_cells(layout, spans, row_center_points, row_segm_logits,col_center_points, col_segm_logits, table_gird_bboxes)
     extend_cell_lines(cells, table['line_polys'])
 
     table = dict(
@@ -406,10 +398,8 @@ def pred_result_to_table_new_token_iflytab_tm_v1(table, pred_result,cfg=None):
  
 
 def pred_result_to_table_new_token_raw(table, pred_result,cfg=None):
-    """蜈井ｽｿ逕ｨSEMv2_SciTSR蠕怜芦layout縲…ol_segment"""
     layout, spans = get_layout_spans(pred_result)
-    row_center_points, row_segm_logits, ¥
-            col_center_points, col_segm_logits, \
+    row_center_points, row_segm_logits, col_center_points, col_segm_logits, \
                 mg_logits, num_rows, num_cols, table_gird_bboxes = pred_result
     
     cells = parse_cells(layout, spans, row_center_points, row_segm_logits,\
@@ -816,7 +806,7 @@ def cal_segment_pr(point_c, begins, ends):
         # unmatched_segments_idx = find_unmatch_segment_spans(pred_segments_pi, fg_spans_pi + bg_spans_pi)
     # print(point_c)
     correct_nums += len(matched_segments_idx)
-    segment_nums += len(point_c) #  - len(unmatched_segments_idx) #TODO: 这里为什么要减去一个不匹配的数量？
+    segment_nums += len(point_c) #  - len(unmatched_segments_idx) 
     span_nums += len(begins)
     # print(correct_nums, segment_nums, span_nums)
     return correct_nums, segment_nums, span_nums,matched_segments_idx, matched_spans
@@ -859,9 +849,8 @@ def cal_line_distance( pred_grids, target_grids, pred_num_rows, target_num_rows,
     return line_distance, row_det_p, row_det_r, col_det_p, col_det_r 
     
 def pred_result_to_table(table, pred_result,cfg=None):
-    """蜈井ｽｿ逕ｨSEMv2_SciTSR蠕怜芦layout縲…ol_segment"""
     layout, spans = trans_pred_result_semv2_2_semv1(pred_result, return_spans=True)
-    row_center_points, row_segm_logits, ¥
+    row_center_points, row_segm_logits, \
             col_center_points, col_segm_logits, \
                 mg_logits, num_rows, num_cols, table_gird_bboxes = pred_result
     
