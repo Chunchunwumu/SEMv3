@@ -8,7 +8,6 @@ mmdet==2.28.2
 numpy==1.24.3
 opencv_python==4.7.0.72
 pandas==2.0.2
-Pillow==8.2.0
 Pillow==10.0.0
 Polygon==1.1.0
 Polygon3==3.0.9.1
